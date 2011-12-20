@@ -1,10 +1,11 @@
 Sgg::Application.routes.draw do
 
-get 'topics/home'
+
 
 
 resources :topics
 
+root :to => "topics#home"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
