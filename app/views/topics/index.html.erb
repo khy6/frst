@@ -1,0 +1,24 @@
+<center><h1>Suggestion Box
+<p>
+<img src="http://www.goodhope.org.uk/images/heft.jpg" alt="W3Schools.com" />
+</p></hr> </center>
+<br />
+<center>
+<p>Remember you can say what you like and ask whatever you want, but it must be constructive!
+</p>
+</center>
+<p>
+<% @topics.each do |topic| %>
+  <tr>
+  <p>  <td><%= topic.title %></td> </p>
+    <td><%= link_to 'Show', topic %></td>
+  <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
+<%end%>
+</p>
+<center>
+<button class="btn large">
+<%= link_to 'Suggest Something', new_topic_path %>
+
+
+</button>
+</center>

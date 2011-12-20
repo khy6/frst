@@ -1,0 +1,9 @@
+<p>
+<% @topics.each do |topic| %>
+  <tr>
+  <p>  <td><%= topic.title %></td> </p>
+    <td><%= link_to 'Show', topic %></td>
+  <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
+<%end%>
+</p>
+
