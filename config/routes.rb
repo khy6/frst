@@ -2,6 +2,7 @@ Sgg::Application.routes.draw do
 match '/', :to => 'topics#index'
 match '/new', :to => 'topics#new'
 match '/edit', :to => 'topics#edit'
+match '/admin', :to => 'topics#admin'
 
 
 resources :topics
