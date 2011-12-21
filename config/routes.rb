@@ -1,11 +1,12 @@
 Sgg::Application.routes.draw do
-
-
+match '/', :to => 'topics#index'
+match '/new', :to => 'topics#new'
+match '/edit', :to => 'topics#edit'
 
 
 resources :topics
 
-root :to => "topics#home"
+root :to => "topics#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

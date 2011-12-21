@@ -1,4 +1,8 @@
 class TopicsController < ApplicationController
+  USER, PASSWORD = 'admin', 'reallystrongpassword'
+ 
+  before_filter :authentication_check, :only => [:show,:delete, :edit]
+
   # GET /topics
   # GET /topics.xml
 
@@ -50,8 +54,9 @@ end
 
     respond_to do |format|
       if @topic.save
-        format.html { redirect_to(@topic, :notice => 'Topic was successfully created.') }
+  format.html { redirect_to(root_path,:notice => 'Topic was successfully created.') }
         format.xml  { render :xml => @topic, :status => :created, :location => @topic }
+
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @topic.errors, :status => :unprocessable_entity }
@@ -86,4 +91,12 @@ end
       format.xml  { head :ok }
     end
   end
+
+private
+  def authentication_check
+    authenticate_or_request_with_http_basic do |user, password|
+      user == USER && password == PASSWORD
+
+end
+end
 end
